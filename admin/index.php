@@ -43,7 +43,7 @@ $row     = mysqli_num_rows($query);
                   <p class="card-text counter h1 font-weight-bolder text-center text-white ">
                     <?php echo $row ?></p>
                   <p class="card-text h6 mb-3 mt-md-4 text-center text-white ">
-                    Siswa telah terdaftar di sistem </p>
+                    Karyawan telah terdaftar di sistem </p>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ $row     = mysqli_num_rows($query);
                   <p class="card-text h1 font-weight-bolder counter text-center text-white ">
                     <?php echo $row_acc ?></p>
                   <p class="card-text h6 mb-3 mt-md-4 text-center text-white ">
-                    Akun Guru Terdaftar </p>
+                    Akun admin Terdaftar </p>
                 </div>
 
 

@@ -30,7 +30,7 @@
 
   <!-- Sidebar -->
   <nav id="sidebar" >
-    <img src="../assets/img/sekolah.png" class="img-fluid" alt="Responsive image">
+    <img src="../assets/img/PTSURYA.png" class="img-fluid" alt="Responsive image">
 
     <ul class="list-unstyled components ">
 
@@ -56,7 +56,7 @@
       </li>
       <li>
         
-        <a href="data_siswa.php" class=""><i class="fas fa-fw fa fa-table mr-3"></i>Data Nama Siswa</a>
+        <a href="data_siswa.php" class=""><i class="fas fa-fw fa fa-table mr-3"></i>Data Nama Karyawan</a>
         
       </li>
       <li>

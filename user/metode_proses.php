@@ -60,141 +60,139 @@
 <?php
 if (isset($_POST['proses'])) {
 
-  $sql    = "SELECT * FROM kriteriapenghasilan";
-  $sql    = "SELECT * FROM data_siswa ORDER BY ABS(jarak - '$jarak') AND ABS(ratanilai - '$ratanilai') AND ABS(penghasilan - '$penghasilan') AND ABS(tanggungan - '$tanggungan') AND ABS(pendidikan - '$pendidikan') AND ABS(kehadiran - '$kehadiran') LIMIT 100";
+  // Query to get employee data from new schema
+  $sql = "SELECT * FROM data_siswa ORDER BY id_pegawai ASC";
   $result = $konek->query($sql);
-  $no     = 1;
-
   $data_post = [];
   while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
     $data_post[] = array(
-      'id_alternatif' => $row['id_siswa'],
-      'id_siswa'     => $row['id_siswa'],
-      'alternatif'   => $row['namasiswa'],
-      'jarak'        => $row['jarak'],
-      'ratanilai'    => $row['ratanilai'],
-      'penghasilan'  => $row['penghasilan'],
-      'tanggungan'   => $row['tanggungan'],
-      'pendidikan'   => $row['pendidikan'],
-      'kehadiran'    => $row['kehadiran']
+      'id_alternatif' => $row['id_pegawai'],
+      'id_pegawai' => $row['id_pegawai'],
+      'namapegawai' => $row['namapegawai'],
+      'jam_kerja' => $row['jam_kerja'],
+      'jumlah_proyek' => $row['jumlah_proyek'],
+      'jam_lembur' => $row['jam_lembur'],
+      'hari_sakit' => $row['hari_sakit'],
+      'gaji_bulanan' => $row['gaji_bulanan'],
+      'jam_training' => $row['jam_training']
     );
   }
 
-  $query_k = $konek->query('SELECT * FROM moo_kriteria');
+  // Get criteria ids and weights from moo_kriteria
+  $query_k = $konek->query('SELECT * FROM moo_kriteria ORDER BY id_kriteria ASC');
   $id_kriteria = [];
+  $bobot_kriteria = [];
+  $type_kriteria = [];
   while ($row_k = $query_k->fetch_array(MYSQLI_ASSOC)) {
     $id_kriteria[] = $row_k['id_kriteria'];
+    $bobot_kriteria[$row_k['id_kriteria']] = $row_k['bobot'];
+    $type_kriteria[$row_k['id_kriteria']] = $row_k['type'];
   }
 
   foreach ($data_post as $key => $value) {
+    // Map employee attributes to nilai values based on criteria
+    // Assuming criteria order: C1: Gaji bulanan (Cost), C2: Hari sakit (Cost), C3: Jam kerja perminggu (Benefit), C4: Jumlah proyek (Benefit), C5: Jam lembur (Benefit), C6: Waktu training (Benefit)
 
-    if ($value['jarak'] <= 3) {
-      $jarak_hasil = 10;
-    } else if ($value['jarak'] <= 5) {
-      $jarak_hasil = 20;
-    } else if ($value['jarak'] <= 10) {
-      $jarak_hasil = 30;
-    } else if ($value['jarak'] <= 100) {
-      $jarak_hasil = 40;
+    // For Gaji bulanan (Cost) - lower is better
+    if ($value['gaji_bulanan'] <= 5000) {
+      $gaji_nilai = 40;
+    } else if ($value['gaji_bulanan'] <= 6500) {
+      $gaji_nilai = 30;
+    } else if ($value['gaji_bulanan'] <= 8000) {
+      $gaji_nilai = 20;
     } else {
-      $jarak_hasil = 10;
+      $gaji_nilai = 10;
     }
 
-    if ($value['penghasilan'] === 'Rp 50.000 - Rp 1.000.000') {
-      $penghasilan_hasil = 10;
-    } else if ($value['penghasilan'] === 'Rp 1.000.000 - Rp 2.000.000') {
-      $penghasilan_hasil = 20;
-    } else if ($value['penghasilan'] === 'Rp 2.000.000 - Rp 4.000.000') {
-      $penghasilan_hasil = 30;
-    } else if ($value['penghasilan'] === 'Lebih dari Rp 4.000.000') {
-      $penghasilan_hasil = 40;
+    // For Hari sakit (Cost) - lower is better
+    if ($value['hari_sakit'] <= 3) {
+      $sakit_nilai = 40;
+    } else if ($value['hari_sakit'] <= 7) {
+      $sakit_nilai = 30;
+    } else if ($value['hari_sakit'] <= 10) {
+      $sakit_nilai = 20;
     } else {
-      $penghasilan_hasil = 10;
+      $sakit_nilai = 10;
     }
 
-    if ($value['tanggungan'] <= 2) {
-      $tanggungan_hasil = 10;
-    } else if ($value['tanggungan'] <= 4) {
-      $tanggungan_hasil = 20;
-    } else if ($value['tanggungan'] <= 6) {
-      $tanggungan_hasil = 30;
-    } else if ($value['tanggungan'] <= 9) {
-      $tanggungan_hasil = 40;
+    // For Jam kerja perminggu (Benefit) - higher is better
+    if ($value['jam_kerja'] >= 60) {
+      $kerja_nilai = 40;
+    } else if ($value['jam_kerja'] >= 50) {
+      $kerja_nilai = 30;
+    } else if ($value['jam_kerja'] >= 40) {
+      $kerja_nilai = 20;
     } else {
-      $tanggungan_hasil = 40;
+      $kerja_nilai = 10;
     }
 
-    if ($value['pendidikan'] === 'SARJANA') {
-      $pendidikan_hasil = 50;
-    } else if ($value['pendidikan'] === 'DIPLOMA') {
-      $pendidikan_hasil = 40;
-    } else if ($value['pendidikan'] === 'SMA') {
-      $pendidikan_hasil = 30;
-    } else if ($value['pendidikan'] === 'SMP') {
-      $pendidikan_hasil = 20;
-    } else if ($value['pendidikan'] === 'SD') {
-      $pendidikan_hasil = 10;
+    // For Jumlah proyek (Benefit) - higher is better
+    if ($value['jumlah_proyek'] >= 42) {
+      $proyek_nilai = 40;
+    } else if ($value['jumlah_proyek'] >= 32) {
+      $proyek_nilai = 30;
+    } else if ($value['jumlah_proyek'] >= 20) {
+      $proyek_nilai = 20;
     } else {
-      $pendidikan_hasil = 10;
+      $proyek_nilai = 10;
     }
 
-    if ($value['kehadiran'] <= 60) {
-      $kehadiran_hasil = 10;
-    } else if ($value['kehadiran'] <= 69) {
-      $kehadiran_hasil = 10;
-    } else if ($value['kehadiran'] <= 89) {
-      $kehadiran_hasil = 20;
-    } else if ($value['kehadiran'] <= 100) {
-      $kehadiran_hasil = 30;
+    // For Jam lembur (Benefit) - higher is better
+    if ($value['jam_lembur'] >= 22) {
+      $lembur_nilai = 40;
+    } else if ($value['jam_lembur'] >= 15) {
+      $lembur_nilai = 30;
+    } else if ($value['jam_lembur'] >= 8) {
+      $lembur_nilai = 20;
     } else {
-      $kehadiran_hasil = 30;
+      $lembur_nilai = 10;
     }
 
-    if ($value['ratanilai'] <= 59) {
-      $ratanilai_hasil = 10;
-    } else if ($value['ratanilai'] <= 60) {
-      $ratanilai_hasil = 10;
-    } else if ($value['ratanilai'] <= 80) {
-      $ratanilai_hasil = 20;
-    } else if ($value['ratanilai'] <= 90) {
-      $ratanilai_hasil = 30;
-    } else if ($value['ratanilai'] <= 100) {
-      $ratanilai_hasil = 40;
+    // For Waktu training (Benefit) - higher is better
+    if ($value['jam_training'] >= 76) {
+      $training_nilai = 40;
+    } else if ($value['jam_training'] >= 51) {
+      $training_nilai = 30;
+    } else if ($value['jam_training'] >= 26) {
+      $training_nilai = 20;
     } else {
-      $ratanilai_hasil = 40;
+      $training_nilai = 10;
     }
 
     $nilai = array(
-      $penghasilan_hasil,
-      $jarak_hasil,
-      $tanggungan_hasil,
-      $pendidikan_hasil,
-      $ratanilai_hasil,
-      $kehadiran_hasil
+      $gaji_nilai,
+      $sakit_nilai,
+      $kerja_nilai,
+      $proyek_nilai,
+      $lembur_nilai,
+      $training_nilai
     );
 
-    $sql = "INSERT INTO moo_alternatif (id_alternatif, id_siswa, alternatif, jarak, ratanilai, penghasilan, tanggungan, pendidikan, kehadiran) VALUES ('$value[id_alternatif]', '$value[id_siswa]', '$value[alternatif]', '$value[jarak]', '$value[ratanilai]', 
-    '$value[penghasilan]', '$value[tanggungan]', '$value[pendidikan]', '$value[kehadiran]')";
+    // Insert into moo_alternatif
+    $sql = "INSERT INTO moo_alternatif (id_alternatif, id_pegawai, namapegawai, jam_kerja, jumlah_proyek, jam_lembur, hari_sakit, gaji_bulanan, jam_training) VALUES (
+      '{$value['id_alternatif']}', '{$value['id_pegawai']}', '{$value['namapegawai']}', '{$value['jam_kerja']}', '{$value['jumlah_proyek']}', '{$value['jam_lembur']}', '{$value['hari_sakit']}', '{$value['gaji_bulanan']}', '{$value['jam_training']}'
+    )";
     $konek->query($sql);
 
+    // Insert into moo_nilai
     for ($i = 0; $i < count($id_kriteria); $i++) {
-      $sql = "INSERT INTO moo_nilai (id_alternatif, id_kriteria, nilai) VALUES ('$value[id_alternatif]','$id_kriteria[$i]','$nilai[$i]')";
-      $query = $konek->query($sql);
+      $sql = "INSERT INTO moo_nilai (Id_alternatif, Id_kriteria, nilai) VALUES ('{$value['id_alternatif']}', '{$id_kriteria[$i]}', '{$nilai[$i]}')";
+      $konek->query($sql);
     }
   }
 
-  if ($query) {
-    echo "<script>alert('Berhasil !');</script>";
-    echo "<script>window.location.href = \"metode_proses.php\"</script>";
-  } else {
-    echo "<script>alert('Gagal !');</script>";
-  }
+  echo "<script>alert('Perhitungan berhasil!');</script>";
+  echo "<script>window.location.href = \"metode_proses.php\"</script>";
+
 } else if (isset($_POST['kosongkan'])) {
 
-  $sql_k_moo_alternatif = "TRUNCATE TABLE moo_alternatif";
-  $konek->query($sql_k_moo_alternatif);
+  // Disable foreign key checks to allow truncation
+  $konek->query("SET FOREIGN_KEY_CHECKS=0");
   $sql_k_moo_nilai = "TRUNCATE TABLE moo_nilai";
   $konek->query($sql_k_moo_nilai);
+  $sql_k_moo_alternatif = "TRUNCATE TABLE moo_alternatif";
+  $konek->query($sql_k_moo_alternatif);
+  $konek->query("SET FOREIGN_KEY_CHECKS=1");
 
   echo "<script>alert('Berhasil mengosongkan tabel!')</script>";
   echo "<script>window.location.href = \"metode_proses.php\"</script>";

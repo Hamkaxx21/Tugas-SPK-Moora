@@ -1,8 +1,5 @@
 <?php include_once 'atribut/head.php'; ?>
 
-
-
-
 <!-- Page Wrapper -->
 <div id="wrapper">
   <!-- begin:: siderbar -->
@@ -425,70 +422,8 @@
                 </div>
               </div>
 
-              <div class="col-xl-6 col-lg-6">
-                <div class="card shadow mb-4">
-                  <div class="card-header">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="mt-2 font-weight-bold text-primary"> <b> <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 4";
-                                                                            $result = $konek->query($query);
-                                                                            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                                                                              $meaning = $row["kriteria"];
-                                                                              echo $meaning;
-                                                                            } ?> </b></h5>
-                        <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
-                          <a class="btn btn-primary shadow" href="data_kriteria_pendidikan_tambah.php">
-                            <span class="icon ">
-                              <i class="fas fa-plus mr-lg-2"></i>
-                            </span>Tambah</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <table border="border-left-info" class="table table-bordered table-striped table table-hover table-sm " width="100%" cellspacing="0">
-                      <thead align="center" class="thead-dark">
-                        <th> No </th>
-                        <th> <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 4";
-                              $result = $konek->query($query);
-                              while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                                $meaning = $row["kriteria"];
-                                echo $meaning;
-                              } ?> </th>
-                        <th> Nilai </th>
-                        <th> Aksi </th>
-                      </thead>
-                      <tbody>
-                        <?php
-                        $query = "SELECT * FROM kriteriapendidikan";
-                        $result = $konek->query($query);
-                        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                        ?>
-                          <tr>
-                            <td align="center"><?php echo $row['id_pendidikan']; ?></td>
-                            <td align="center"><?php echo $row['pendidikan']; ?></td>
-                            <td align="center"><?php echo $row['nilai']; ?></td>
-                            <td align="center">
-                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_pendidikan_ubah.php?id_pendidikan=<?php echo $row['id_pendidikan'] ?>">
-                                <span class="icon">
-                                  <i class="fas fa-edit"></i>
-                                </span>
-                              </a>
-                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_pendidikan_hapus.php?id_pendidikan=<?php echo $row['id_pendidikan'] ?>">
-                                <span class="icon">
-                                  <i class="fas fa-trash"></i>
-                                </span>
-                              </a>
-                            </td>
-                          </tr>
-                        <?php
-                        }
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              <!-- Removed Pendidikan Subcriteria Section -->
+
             </div>
           </div>
 

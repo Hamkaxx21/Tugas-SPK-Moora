@@ -30,7 +30,7 @@ $row     = mysqli_num_rows($query);
         <div class="row align-items-center">
             <div class="col-lg-7 py-5">
                 <h1 class="mb-4">Selamat datang <i><?php echo (!empty($_SESSION['username'])) ? $_SESSION['username'] : 'USER'; ?></i> di perhitungan SPK MOORA</h1>
-                <h2 class="m-0">Dashboard ini merupakan halaman Awal dari Sistem Pendukung Keputusan pemilihan siswa penerima bantuan di SMPN 174</h2>
+                <h2 class="m-0">Dashboard ini merupakan halaman Awal dari Sistem Pendukung Keputusan Kenaikan Jabatan Karyawan</h2>
             </div>
             <div class="col-lg-5">
                 <div class="py-5 px-4 masthead-cards">
@@ -41,7 +41,7 @@ $row     = mysqli_num_rows($query);
                                     <div class="text-center">
                                         <i class="fa fa-table fa-4x my-2"></i>
                                     </div>
-                                    Data Siswa
+                                    Data Karyawan
                                 </div>
                             </div>
                         </a>
@@ -51,7 +51,7 @@ $row     = mysqli_num_rows($query);
                                     <div class="text-center">
                                         <i class="fa fa-chart-bar fa-4x my-2"></i>
                                     </div>
-                                    Monitor Siswa
+                                    Monitor Karyawan
                                 </div>
                             </div>
                         </a>

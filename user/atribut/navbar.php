@@ -11,7 +11,7 @@
   </nav>
   <div class="row">
     <div class="col-xl-12">
-      <h5 class="mt-2 ml-3 font-weight-bold text-primary"><b> Pemilihan Siswa Penerima Bantuan SMPN 174 MOORA </b></h5>
+      <h5 class="mt-2 ml-3 font-weight-bold text-primary"><b> Pemilihan Kenaikan Jabatan Karyawan Dengan MOORA </b></h5>
     </div>
   </div>
   <ul class="navbar-nav ml-auto">

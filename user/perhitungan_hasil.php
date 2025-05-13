@@ -18,37 +18,37 @@ $alternatif=array();
 foreach ($result as $row) {
    $alternatif[$row['id_alternatif']] = array(
      $row['id_alternatif'],
-     $row['alternatif'],
-     $row['penghasilan'],
-     $row['jarak'],
-     $row['tanggungan'],
-     $row['ratanilai'],
-     $row['pendidikan'],
-     $row['kehadiran'],
+     $row['namapegawai'],
+     $row['gaji_bulanan'],
+     $row['hari_sakit'],
+     $row['jam_kerja'],
+     $row['jumlah_proyek'],
+     $row['jam_lembur'],
+     $row['jam_training'],
    );
    
 }
 
 foreach ($result as $row) {
-   $id_siswa[$row['id_siswa']] = array(
-     $row['id_siswa'],
+   $id_pegawai[$row['id_pegawai']] = array(
+     $row['id_pegawai'],
    );
    
 }
 
 //-- query untuk mendapatkan semua data sample penilaian di tabel moo_nilai
-$sql = 'SELECT * FROM moo_nilai ORDER BY id_alternatif, id_kriteria';
+$sql = 'SELECT * FROM moo_nilai ORDER BY Id_alternatif, Id_kriteria';
 $result = $konek->query($sql);
 //-- menyiapkan variable penampung berupa array
 $sample=array();
 //-- melakukan iterasi pengisian array untuk tiap record data yang didapat
 foreach ($result as $row) {
-   //-- jika array $sample[$row['id_alternatif']] belum ada maka buat baru
-   //-- $row['id_alternatif'] adalah id kandidat/alternatif
-   if (!isset($sample[$row['id_alternatif']])) {
-      $sample[$row['id_alternatif']] = array();
+   //-- jika array $sample[$row['Id_alternatif']] belum ada maka buat baru
+   //-- $row['Id_alternatif'] adalah id kandidat/alternatif
+   if (!isset($sample[$row['Id_alternatif']])) {
+      $sample[$row['Id_alternatif']] = array();
    }
-   $sample[$row['id_alternatif']][$row['id_kriteria']] = $row['nilai'];
+   $sample[$row['Id_alternatif']][$row['Id_kriteria']] = $row['nilai'];
 }
 
 //-- inisialisasi nilai normalisasi dengan nilai dari $sample
@@ -72,4 +72,3 @@ foreach($alternatif as $id_alternatif=>$a){
    }
 }
 ?>
-

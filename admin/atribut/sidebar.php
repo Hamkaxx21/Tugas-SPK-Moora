@@ -29,7 +29,7 @@
 
   <!-- Sidebar -->
   <nav id="sidebar">
-    <img src="../assets/img/sekolah.png" class="img-fluid" alt="Responsive image">
+    <img src="../assets/img/PTSURYA.png" class="img-fluid" alt="Responsive image">
 
     <ul class="list-unstyled components">
 
@@ -37,13 +37,13 @@
         <a href="index.php"><i class="fas fa-fw fa-home mr-3"></i>Dashboard</a>
       </li>
       <li>
-        <a href="registrasi_user.php"><i class="fas fa-fw fa-users-cog mr-3"></i>Pengaturan Akun Guru</a>
+        <a href="registrasi_user.php"><i class="fas fa-fw fa-users-cog mr-3"></i>Pengaturan Akun User</a>
       </li>
       <li>
-        <a href="registrasi_administrator.php"><i class="fas fa-fw fa-users-cog mr-3"></i>Pengaturan Akun Pegawai</a>
+        <a href="registrasi_administrator.php"><i class="fas fa-fw fa-users-cog mr-3"></i>Pengaturan Akun Admin</a>
       </li>
       <li>
-      <a href="data_siswa.php" class=""><i class="fas fa-fw fa fa-table mr-3"></i>Data Nama Siswa</a>
+      <a href="data_siswa.php" class=""><i class="fas fa-fw fa fa-table mr-3"></i>Data Nama Karyawan</a>
       </li>
       <li>
       <a href="data_kriteria.php"><i class="fas fa-fw fa fa-book mr-3"></i>Kriteria MOORA</a>

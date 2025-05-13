@@ -20,11 +20,11 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col">
-                    <h5 class="mt-2 font-weight-bold text-primary"> <b> Pengaturan Akun Guru </b></h5>
+                    <h5 class="mt-2 font-weight-bold text-primary"> <b> Pengaturan Akun User </b></h5>
                   </div>
                   <div class="col-lg-16 col-xl-6" style="text-align: right;">
                     <a class="btn btn-primary shadow" href="registrasi_user_tambah.php"> <span class="icon ">
-                              <i class="fas fa-user-plus mr-lg-2"></i>Tambah Akun Guru</a>
+                              <i class="fas fa-user-plus mr-lg-2"></i>Tambah Akun User</a>
                   </div>
                 </div>
               </div>
@@ -32,7 +32,7 @@
                 <table border="border-left-info" class=" shadow table table-bordered table-striped table table-hover table-sm " id="sortdisable">
                   <thead align="center" class="thead-dark">
                     <th>ID</th>
-                    <th>Nama Guru</th>
+                    <th>Nama User</th>
                     <th>Username</th>
                     <th>Password</th>
                     <th>Level</th>

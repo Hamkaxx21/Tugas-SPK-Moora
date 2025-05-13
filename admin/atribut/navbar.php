@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-md-12">
       <h5 class="mt-2 font-weight-bolder text-primary ">
-        <b>Pemilihan Siswa Penerima Bantuan SMPN 174 MOORA</b>
+        <b>Pemilihan Kenaikan Jabatan Dengan MOORA</b>
       </h5>
     </div>
   </div>

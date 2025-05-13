@@ -41,7 +41,7 @@ $row        = mysqli_fetch_array($query);
                   </div>
                 </div>
                 <div class="form-group ">
-                  <label class="control-label">Nama Guru</label>
+                  <label class="control-label">Nama User</label>
                   <div class="col">
                     <input class="form-control  " type="text" name="nama_user" value="<?php echo $row['nama_user']; ?>"
                       required>

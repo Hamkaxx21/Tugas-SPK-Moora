@@ -20,13 +20,13 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col">
-                    <h5 class="mt-2 font-weight-bold text-primary"> <b> Daftar Siswa </b></h5>
+                    <h5 class="mt-2 font-weight-bold text-primary"> <b> Daftar Karyawan </b></h5>
                   </div>
                   <div class="col-lg-6 col-xl-6" style="text-align: right;">
                     <a class="btn btn-primary shadow" href="data_siswa_tambah.php">
                     <span class="icon ">
                               <i class="fas fa-user-plus mr-lg-2"></i>
-                            </span>Tambah Data Siswa</a>
+                            </span>Tambah Data Karyawan</a>
                   </div>
                 </div>
               </div>
@@ -34,7 +34,7 @@
                 <table border="border-left-info" class=" shadow table table-bordered table-striped table table-hover table-sm " id="dataTable" >
                   <thead align="center" class="thead-light">
                     <th style="width: 3.66%">No</th>
-                    <th>Nama Siswa</th>
+                    <th>Nama Karyawan</th>
                     <?php
                     $sqlNamakriteria = "SELECT * FROM moo_kriteria ORDER BY id_kriteria ASC";
                     $resultNamaKriteria = mysqli_query($konek, $sqlNamakriteria);
@@ -52,29 +52,29 @@
                       $result = $konek->query($query);
                       while ($row=$result->fetch_array(MYSQLI_ASSOC)) { ?>
                       <tr>
-                      <td align="center" style="width: 1.66%"><?php echo $row['id_siswa']; ?></td>
-                      <td align="center" style="width: 55.66%"><?php echo $row['namasiswa']; ?></td>
-                      <td align="center" style="width: 25.66%"><?php echo ($row['penghasilan']);?></td>
-                      <td align="center" style="width: 5.66%"><?php echo $row['jarak']; ?> KM</td>
-                      <td align="center"><?php echo $row['tanggungan']; ?> Tanggungan</td>
-                      <td align="center" style="width: 5.66%"><?php echo $row['pendidikan']; ?></td>
-                      <td align="center" style="width: 3.66%"><?php echo number_format ($row['ratanilai']); ?></td>
-                      <td align="center" style="width: 3.66%"><?php echo number_format ($row['kehadiran']); ?> %</td>
+                      <td align="center" style="width: 1.66%"><?php echo $row['id_pegawai']; ?></td>
+                      <td align="center" style="width: 55.66%"><?php echo $row['namapegawai']; ?></td>
+                      <td align="center" style="width: 25.66%"><?php echo ($row['gaji_bulanan']);?></td>
+                      <td align="center" style="width: 5.66%"><?php echo $row['jumlah_proyek']; ?></td>
+                      <td align="center"><?php echo $row['hari_sakit']; ?></td>
+                      <td align="center" style="width: 5.66%"><?php echo $row['jam_kerja']; ?></td>
+                      <td align="center" style="width: 3.66%"><?php echo $row['jam_lembur']; ?></td>
+                      <td align="center" style="width: 3.66%"><?php echo $row['jam_training']; ?></td>
                         <td align="center" style="width: 1.66%">
                           <a class="btn btn-outline-info btn-sm  border-0"
-                            href="data_siswa_detail.php?id_siswa=<?php echo $row['id_siswa'] ?>">
-                            <spazn class="icon">
+                            href="data_siswa_detail.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
+                            <span class="icon">
                               <i class="fas fa-info-circle"></i>
-                            </spazn>
+                            </span>
                           </a>
                           <a class="btn btn-outline-info btn-sm  border-0"
-                            href="data_siswa_ubah.php?id_siswa=<?php echo $row['id_siswa'] ?>">
+                            href="data_siswa_ubah.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
                             <span class="icon">
                               <i class="fas fa-edit"></i>
                             </span>
                           </a>
                           <a class="btn btn-info  btn-sm btn-outline-danger border-0"
-                            href="data_siswa_hapus.php?id_siswa=<?php echo $row['id_siswa'] ?>">
+                            href="data_siswa_hapus.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
                             <span class="icon">
                               <i class="fas fa-trash"></i>
                             </span>
@@ -113,5 +113,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="../assets/datatables/jquery.dataTables.min.js"></script>
 <script src="../assets/datatables/dataTables.bootstrap4.js"></script>
-
-
