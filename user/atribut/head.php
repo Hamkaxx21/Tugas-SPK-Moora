@@ -17,7 +17,7 @@ if (empty($_SESSION['username'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SPK MOORA Siswa (Guru1)</title>
+  <title>SPK MOORA Karyawan</title>
 
   <link href="../assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">

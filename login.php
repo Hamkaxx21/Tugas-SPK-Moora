@@ -66,7 +66,7 @@ if (isset($_POST['masuk'])) {
           <div class="card card-signin my-5">
             <div class="card-body">
               <img src="../spk/assets/img/sekolah.png" alt="Paris">
-              <h5 class="card-title text-center">Masuk Sebagai <b>Guru</b></h5>
+              <h5 class="card-title text-center">Masuk Sebagai <b>User</b></h5>
 
 </html>
 <?php if (isset($user_or_pass)) { ?>
