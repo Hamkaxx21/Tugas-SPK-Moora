@@ -5,15 +5,15 @@
 
 
 <head>
-    <title>Cetak Data Siswa</title>
+    <title>Cetak Data Kenaikan Jabatan</title>
 </head>
 
 <body>
 
     <center>
 
-        <h2>DATA NAMA SISWA PENERIMA BANTUAN</h2>
-        <h4>SMPN 174 JAKARTA</h4>
+        <h2>DATA Ranking Kenaikan Jabatan Karyawan</h2>
+        <h4>PT Surya Tech</h4>
 
     </center>
 
