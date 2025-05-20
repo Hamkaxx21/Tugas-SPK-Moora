@@ -1,10 +1,16 @@
 <?php include_once 'atribut/head.php'; ?>
 
 <?php
-$id_kehadiran = $_GET['id_kehadiran'];
-$sql    = "SELECT * FROM kriteriakehadiran WHERE id_kehadiran = '$id_kehadiran'";
-$query  = mysqli_query($konek, $sql);
-$row    = mysqli_fetch_array($query);
+$sql    = "SELECT id_training FROM kriteriajamtraining";
+$carkod = mysqli_query($konek, $sql);
+$datkod = mysqli_fetch_array($carkod, MYSQLI_ASSOC);
+$jumdat = mysqli_num_rows($carkod);
+if ($datkod) {
+  $kode    = $jumdat + 1;
+  $kodeoto = $kode;
+} else {
+  $kodeoto = "1";
+}
 ?>
 
 <!-- Page Wrapper -->
@@ -17,36 +23,35 @@ $row    = mysqli_fetch_array($query);
   <div id="content-wrapper" class="d-flex flex-column">
     <!-- Main Content -->
     <div id="content">
-      
+
       <?php include_once 'atribut/navbar.php'; ?>
 
-      <!-- begin:: content -->
+      <!-- Begin Page Content -->
       <div class="container-fluid">
         <!-- <div class="row"> -->
         <div class="col-xl-12  col-lg-8">
           <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary"> <b> Ubah Data Kriteria Kehadiran Siswa </b></h5>
+              <h5 class="m-0 font-weight-bold text-primary"> <b> Tambah Kriteria Jam Training </b></h5>
             </div>
             <div class="card-body">
               <form class="form" method="post">
                 <div class="form-group">
                   <label class="control-label col-md-12 col-sm-12 col-xs-12">Nomor</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="id_kehadiran" value="<?php echo $row['id_kehadiran']; ?>"
-                      readonly="readonly">
+                    <input class="form-control" type="text" name="id_training" value="<?= $kodeoto ?>" readonly="readonly">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Kehadiran</label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Jam Training </label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="kehadiran" value="<?php echo $row['kehadiran']; ?>">
+                    <input class="form-control" type="text" name="jam_training" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Nilai</label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Nilai </label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="number" name="nilai" value="<?php echo $row['nilai']; ?>">
+                    <input class="form-control" type="number" name="nilai" required>
                   </div>
                 </div>
                 <!-- Button -->
@@ -59,37 +64,32 @@ $row    = mysqli_fetch_array($query);
           </div>
         </div>
       </div>
-      <!-- end:: content -->
     </div>
   </div>
 </div>
 <!-- End of Page Content -->
 <!-- end -->
-
 </div>
 <!-- End of Content Wrapper -->
-
 </div>
 <!-- End of Page Wrapper -->
 
 <?php include_once 'atribut/foot.php'; ?>
 
 <?php
-
 if (isset($_POST['simpan'])) {
-  $id_kehadiran     = $_POST ['id_kehadiran'];
-  $kehadiran      = $_POST ['kehadiran'];
-  $nilai      = $_POST ['nilai'];
+  $id_training   = $_POST['id_training'];
+  $jam_training      = $_POST['jam_training'];
+  $nilai      = $_POST['nilai'];
 
-  $query = "UPDATE kriteriakehadiran SET kehadiran = '$kehadiran', nilai = '$nilai' WHERE id_kehadiran = '$id_kehadiran'";
-  $simpan = mysqli_query($konek, $query);
-  if ($simpan === true) {
-    echo "<script>alert('Kriteria Berhasil Di Ubah') </script>";
-		echo "<script>window.location.href = \"data_kriteria.php\" </script>";
-  }
-  else {
-    echo "<script>alert('Kriteria Gagal Di Ubah') </script>";
-		echo "<script>window.location.href = \"data_kriteria.php\" </script>";
+  $query = "INSERT INTO kriteriajamtraining (id_training, jam_training, nilai) VALUES ('$id_training','$jam_training','$nilai')";
+  $tambah = mysqli_query($konek, $query);
+  if ($tambah === true) {
+    echo "<script>alert('Kriteria Berhasil Di Tambah') </script>";
+    echo "<script>window.location.href = \"data_kriteria.php\" </script>";
+  } else {
+    echo "<script>alert('Kriteria Gagal Di Tambah') </script>";
+    echo "<script>window.location.href = \"data_kriteria.php\" </script>";
   }
 }
- ?>
+?>

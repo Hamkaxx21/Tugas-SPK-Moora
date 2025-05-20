@@ -23,7 +23,7 @@
                     <h5 class="mt-2 font-weight-bold text-primary"> <b> Daftar Karyawan </b></h5>
                   </div>
                   <div class="col-lg-6 col-xl-6" style="text-align: right;">
-                    <a class="btn btn-primary shadow" href="data_siswa_tambah.php">
+                    <a class="btn btn-primary shadow" href="data_pegawai_tambah.php">
                     <span class="icon ">
                               <i class="fas fa-user-plus mr-lg-2"></i>
                             </span>Tambah Data Karyawan</a>
@@ -48,7 +48,7 @@
                   </thead>
                   <tbody>
                     <?php
-                      $query  = "SELECT * FROM data_siswa";
+                      $query  = "SELECT * FROM data_pegawai";
                       $result = $konek->query($query);
                       while ($row=$result->fetch_array(MYSQLI_ASSOC)) { ?>
                       <tr>
@@ -62,19 +62,19 @@
                       <td align="center" style="width: 3.66%"><?php echo $row['jam_training']; ?></td>
                         <td align="center" style="width: 1.66%">
                           <a class="btn btn-outline-info btn-sm  border-0"
-                            href="data_siswa_detail.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
+                            href="data_pegawai_detail.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
                             <span class="icon">
                               <i class="fas fa-info-circle"></i>
                             </span>
                           </a>
                           <a class="btn btn-outline-info btn-sm  border-0"
-                            href="data_siswa_ubah.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
+                            href="data_pegawai_ubah.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
                             <span class="icon">
                               <i class="fas fa-edit"></i>
                             </span>
                           </a>
                           <a class="btn btn-info  btn-sm btn-outline-danger border-0"
-                            href="data_siswa_hapus.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
+                            href="data_pegawai_hapus.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
                             <span class="icon">
                               <i class="fas fa-trash"></i>
                             </span>

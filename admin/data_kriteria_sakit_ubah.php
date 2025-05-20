@@ -1,16 +1,10 @@
 <?php include_once 'atribut/head.php'; ?>
 
 <?php
-$sql    = "SELECT id_ratanilai FROM kriteriaratanilai";
-$carkod = mysqli_query($konek, $sql);
-$datkod = mysqli_fetch_array($carkod, MYSQLI_ASSOC);
-$jumdat = mysqli_num_rows($carkod);
-if ($datkod) {
-  $kode    = $jumdat + 1;
-  $kodeoto = $kode;
-} else {
-  $kodeoto = "1";
-}
+$idkecep   = $_GET['id_sakit'];
+$sql       = "SELECT * FROM kriteriaharisakit WHERE id_sakit = '$idkecep'";
+$query     = mysqli_query($konek, $sql);
+$row       = mysqli_fetch_array($query);
 ?>
 
 <!-- Page Wrapper -->
@@ -23,7 +17,7 @@ if ($datkod) {
   <div id="content-wrapper" class="d-flex flex-column">
     <!-- Main Content -->
     <div id="content">
-      
+
       <?php include_once 'atribut/navbar.php'; ?>
 
       <!-- Begin Page Content -->
@@ -32,27 +26,26 @@ if ($datkod) {
         <div class="col-xl-12  col-lg-8">
           <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary"> <b> Tambah Kriteria Rata-Rata Nilai </b></h5>
+              <h5 class="m-0 font-weight-bold text-primary"> <b> Ubah Data Kriteria Jarak yang Ditempuh </b></h5>
             </div>
             <div class="card-body">
               <form class="form" method="post">
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12">ID</label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Nomor</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="id_ratanilai" value="<?= $kodeoto ?>"
-                      readonly="readonly">
+                    <input class="form-control" type="text" name="id_sakit" value="<?php echo $row['id_sakit']; ?>" readonly="readonly">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Rata-Rata Nilai </label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Hari Sakit</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="ratanilai" required>
+                    <input class="form-control" type="text" name="hari_sakit" value="<?php echo $row['hari_sakit']; ?>">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Nilai </label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Nilai</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="number" name="nilai" requiFred>
+                    <input class="form-control" type="number" name="nilai" value="<?php echo $row['nilai']; ?>">
                   </div>
                 </div>
                 <!-- Button -->
@@ -82,19 +75,18 @@ if ($datkod) {
 
 <?php
 if (isset($_POST['simpan'])) {
-  $id_ratanilai   = $_POST ['id_ratanilai'];
-  $ratanilai          = $_POST ['ratanilai'];
-  $nilai           = $_POST ['nilai'];
+  $id_sakit    = $_POST['id_sakit'];
+  $hari_sakit      = $_POST['hari_sakit'];
+  $nilai      = $_POST['nilai'];
 
-  $query = "INSERT INTO kriteriaratanilai (id_ratanilai, ratanilai, nilai) VALUES ('$id_ratanilai','$ratanilai','$nilai')";
-  $tambah = mysqli_query($konek, $query);
-  if ($tambah === true) {
-    echo "<script>alert('Kriteria Berhasil Di Tambah') </script>";
-		echo "<script>window.location.href = \"data_kriteria.php\" </script>";
-  }
-  else {
-    echo "<script>alert('Kriteria Gagal Di Tambah') </script>";
-		echo "<script>window.location.href = \"data_kriteria.php\" </script>";
+  $query = "UPDATE kriteriaharisakit SET hari_sakit = '$hari_sakit', nilai = '$nilai' WHERE id_sakit = '$id_sakit'";
+  $simpan = mysqli_query($konek, $query);
+  if ($simpan === true) {
+    echo "<script>alert('Kriteria Berhasil Di Ubah') </script>";
+    echo "<script>window.location.href = \"data_kriteria.php\" </script>";
+  } else {
+    echo "<script>alert('Kriteria Gagal Di Ubah') </script>";
+    echo "<script>window.location.href = \"data_kriteria.php\" </script>";
   }
 }
- ?>
+?>

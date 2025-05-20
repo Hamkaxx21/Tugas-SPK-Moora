@@ -56,7 +56,7 @@
       </li>
       <li>
         
-        <a href="data_siswa.php" class=""><i class="fas fa-fw fa fa-table mr-3"></i>Data Nama Karyawan</a>
+        <a href="data_pegawai.php" class=""><i class="fas fa-fw fa fa-table mr-3"></i>Data Nama Karyawan</a>
         
       </li>
       <li>

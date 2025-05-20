@@ -2,7 +2,7 @@
 <?php
 
 $id_pegawai = $_GET['id_pegawai'];
-$sql     = "SELECT * FROM data_siswa WHERE id_pegawai= '$id_pegawai'";
+$sql     = "SELECT * FROM data_pegawai WHERE id_pegawai= '$id_pegawai'";
 $query   = mysqli_query($konek, $sql);
 $row     = mysqli_fetch_array($query);
 ?>
@@ -30,7 +30,7 @@ $row     = mysqli_fetch_array($query);
                     <h5 class="mt-2 font-weight-bold text-primary"> <b> Detail Karyawan </b></h5>
                   </div>
                   <div class="col-lg-6 col-xl-6" style="text-align: right;">
-                    <a class="btn btn-danger" href="data_siswa.php">Kembali</a>
+                    <a class="btn btn-danger" href="data_pegawai.php">Kembali</a>
                   </div>
                 </div>
               </div>

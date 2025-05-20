@@ -1,8 +1,8 @@
 <?php include_once 'atribut/head.php'; ?>
 
 <?php
-$iduntung  = $_GET['id_ratanilai'];
-$sql       = "SELECT * FROM kriteriaratanilai WHERE id_ratanilai = '$iduntung'";
+$iduntung  = $_GET['id_lembur'];
+$sql       = "SELECT * FROM kriteriajamlembur WHERE id_lembur = '$iduntung'";
 $query     = mysqli_query($konek, $sql);
 $row       = mysqli_fetch_array($query);
 ?>
@@ -33,14 +33,14 @@ $row       = mysqli_fetch_array($query);
                 <div class="form-group">
                   <label class="control-label col-md-12 col-sm-12 col-xs-12">Nomor</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="iduntung" value="<?php echo $row['id_ratanilai']; ?>"
+                    <input class="form-control" type="text" name="iduntung" value="<?php echo $row['id_lembur']; ?>"
                       readonly="readonly">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Rata-Rata Nilai</label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Jam Lembur </label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="ratanilai" value="<?php echo $row['ratanilai']; ?>">
+                    <input class="form-control" type="text" name="jam_lembur" value="<?php echo $row['jam_lembur']; ?>">
                   </div>
                 </div>
                 <div class="form-group">
@@ -76,10 +76,10 @@ $row       = mysqli_fetch_array($query);
 <?php
 if (isset($_POST['simpan'])) {
   $iduntung   = $_POST ['iduntung'];
-  $ratanilai = $_POST ['ratanilai'];
+  $jam_lembur = $_POST ['jam_lembur'];
   $nilai      = $_POST ['nilai'];
 
-  $query = "UPDATE kriteriaratanilai SET ratanilai = '$ratanilai', nilai = '$nilai' WHERE id_ratanilai = '$iduntung'";
+  $query = "UPDATE kriteriajamlembur SET jam_lembur = '$jam_lembur', nilai = '$nilai' WHERE id_lembur = '$iduntung'";
   $simpan = mysqli_query($konek, $query);
   if ($simpan === true) {
     echo "<script>alert('Kriteria Berhasil Di Ubah') </script>";

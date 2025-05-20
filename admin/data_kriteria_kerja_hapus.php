@@ -2,9 +2,9 @@
 session_start();
 include_once '../db/koneksi.php';
 
-$id_penghasilan   = $_GET['id_penghasilan'];
-$sql        = "DELETE FROM kriteriapenghasilanortu WHERE id_penghasilan = '$id_penghasilan' ";
-$query      = mysqli_query($konek, $sql);
+$id_kerja   = $_GET['id_kerja'];
+$sql          = "DELETE FROM kriteriajamkerja WHERE id_kerja = '$id_kerja' ";
+$query        = mysqli_query($konek, $sql);
 if ($query) {
   echo "<script>alert('Data Kriteria Berhasil Di Hapus') </script>";
   echo "<script>window.location.href = \"data_kriteria.php\" </script>";

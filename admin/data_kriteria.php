@@ -93,7 +93,7 @@
                   <div class="card-header ">
                     <div class="row">
                       <div class="col-lg-6 col-xl-12">
-                        <h5 class="mt-2 font-weight-bold text-primary"> <b>
+                        <h5 class="mt-2 font-weight-bold text-primary"> <b> 
                             <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 1";
                             $result = $konek->query($query);
                             while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -102,7 +102,7 @@
                             } ?>
                           </b></h5>
                         <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
-                          <a class="btn btn-primary shadow" href="data_kriteria_penghasilan_tambah.php">
+                          <a class="btn btn-primary shadow" href="data_kriteria_gaji_tambah.php">
                             <span class="icon ">
                               <i class="fas fa-plus mr-lg-2"></i>
                             </span>Tambah</a>
@@ -127,22 +127,22 @@
                       </thead>
                       <tbody>
                         <?php
-                        $query = "SELECT * FROM kriteriapenghasilanortu";
+                        $query = "SELECT * FROM kriteriagajibulanan";
                         $result = $konek->query($query);
 
                         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                         ?>
                           <tr>
-                            <td align="center"><?php echo $row['id_penghasilan']; ?></td>
-                            <td align="center"><?php echo $row['penghasilan']; ?></td>
+                            <td align="center"><?php echo $row['id_gaji']; ?></td>
+                            <td align="center"><?php echo $row['gaji_bulanan']; ?></td>
                             <td align="center"><?php echo $row['nilai']; ?></td>
                             <td align="center">
-                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_penghasilan_ubah.php?id_penghasilan=<?php echo $row['id_penghasilan'] ?>">
+                            <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_gaji_ubah.php?id_gaji=<?php echo $row['id_gaji'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-edit"></i>
                                 </span>
                               </a>
-                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_penghasilan_hapus.php?id_penghasilan=<?php echo $row['id_penghasilan'] ?>">
+                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_gaji_hapus.php?id_gaji=<?php echo $row['id_gaji'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-trash"></i>
                                 </span>
@@ -169,7 +169,7 @@
                                                                               echo $meaning;
                                                                             } ?> </b></h5>
                         <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
-                          <a class="btn btn-primary shadow" href="data_kriteria_jarak_tambah.php">
+                          <a class="btn btn-primary shadow" href="data_kriteria_sakit_tambah.php">
                             <span class="icon ">
                               <i class="fas fa-plus mr-lg-2"></i>
                             </span>Tambah</a>
@@ -193,22 +193,22 @@
                       </thead>
                       <tbody>
                         <?php
-                        $query = "SELECT * FROM kriteriajarak";
+                        $query = "SELECT * FROM kriteriaharisakit";
                         $result = $konek->query($query);
 
                         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                         ?>
                           <tr>
-                            <td align="center"><?php echo $row['id_jarak']; ?> </td>
-                            <td align="center"><?php echo $row['jarak']; ?> KM</td>
+                            <td align="center"><?php echo $row['id_sakit']; ?> </td>
+                            <td align="center"><?php echo $row['hari_sakit']; ?></td>
                             <td align="center"><?php echo $row['nilai']; ?></td>
                             <td align="center">
-                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_jarak_ubah.php?id_jarak=<?php echo $row['id_jarak'] ?>">
+                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_sakit_ubah.php?id_sakit=<?php echo $row['id_sakit'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-edit"></i>
                                 </span>
                               </a>
-                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_jarak_hapus.php?id_jarak=<?php echo $row['id_jarak'] ?>">
+                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_sakit_hapus.php?id_sakit=<?php echo $row['id_sakit'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-trash"></i>
                                 </span>
@@ -235,7 +235,7 @@
                                                                               echo $meaning;
                                                                             } ?> </b></h5>
                         <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
-                          <a class="btn btn-primary shadow" href="data_kriteria_tanggungan_tambah.php">
+                          <a class="btn btn-primary shadow" href="data_kriteria_kerja_tambah.php">
                             <span class="icon ">
                               <i class="fas fa-plus mr-lg-2"></i>
                             </span>Tambah</a>
@@ -259,22 +259,22 @@
                       </thead>
                       <tbody>
                         <?php
-                        $query = "SELECT * FROM kriteriatanggungan";
+                        $query = "SELECT * FROM kriteriajamkerja";
                         $result = $konek->query($query);
 
                         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                         ?>
                           <tr>
-                            <td align="center"><?php echo $row['id_tanggungan']; ?> </td>
-                            <td align="center"><?php echo $row['tanggungan']; ?> Tanggungan</td>
+                            <td align="center"><?php echo $row['id_kerja']; ?></td>
+                            <td align="center"><?php echo $row['jam_kerja']; ?></td>
                             <td align="center"><?php echo $row['nilai']; ?></td>
                             <td align="center">
-                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_tanggungan_ubah.php?id_tanggungan=<?php echo $row['id_tanggungan'] ?>">
+                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_kerja_ubah.php?id_kerja=<?php echo $row['id_kerja'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-edit"></i>
                                 </span>
                               </a>
-                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_tanggungan_hapus.php?id_tanggungan=<?php echo $row['id_tanggungan'] ?>">
+                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_kerja_hapus.php?id_kerja=<?php echo $row['id_kerja'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-trash"></i>
                                 </span>
@@ -301,7 +301,7 @@
                                                                               echo $meaning;
                                                                             } ?> </b></h5>
                         <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
-                          <a class="btn btn-primary shadow" href="data_kriteria_ratanilai_tambah.php">
+                          <a class="btn btn-primary shadow" href="data_kriteria_lembur_tambah.php">
                             <span class="icon ">
                               <i class="fas fa-plus mr-lg-2"></i>
                             </span>Tambah</a>
@@ -325,22 +325,22 @@
                       </thead>
                       <tbody>
                         <?php
-                        $query = "SELECT * FROM kriteriaratanilai";
+                        $query = "SELECT * FROM kriteriajamlembur";
                         $result = $konek->query($query);
 
                         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                         ?>
                           <tr>
-                            <td align="center"><?php echo $row['id_ratanilai']; ?></td>
-                            <td align="center"><?php echo $row['ratanilai']; ?></td>
+                            <td align="center"><?php echo $row['id_lembur']; ?></td>
+                            <td align="center"><?php echo $row['jam_lembur']; ?></td>
                             <td align="center"><?php echo $row['nilai']; ?></td>
                             <td align="center">
-                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_ratanilai_ubah.php?id_ratanilai=<?php echo $row['id_ratanilai'] ?>">
+                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_lembur_ubah.php?id_lembur=<?php echo $row['id_lembur'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-edit"></i>
                                 </span>
                               </a>
-                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_ratanilai_hapus.php?id_ratanilai=<?php echo $row['id_ratanilai'] ?>">
+                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_lembur_hapus.php?id_lembur=<?php echo $row['id_lembur'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-trash"></i>
                                 </span>
@@ -367,7 +367,7 @@
                                                                               echo $meaning;
                                                                             } ?> </b></h5>
                         <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
-                          <a class="btn btn-primary shadow" href="data_kriteria_kehadiran_tambah.php">
+                          <a class="btn btn-primary shadow" href="data_kriteria_training_tambah.php">
                             <span class="icon ">
                               <i class="fas fa-plus mr-lg-2"></i>
                             </span>Tambah</a>
@@ -391,22 +391,22 @@
                       </thead>
                       <tbody>
                         <?php
-                        $query = "SELECT * FROM kriteriakehadiran";
+                        $query = "SELECT * FROM kriteriajamtraining";
                         $result = $konek->query($query);
 
                         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                         ?>
                           <tr>
-                            <td align="center"><?php echo $row['id_kehadiran']; ?></td>
-                            <td align="center"><?php echo $row['kehadiran']; ?>%</td>
+                            <td align="center"><?php echo $row['id_training']; ?></td>
+                            <td align="center"><?php echo $row['jam_training']; ?></td>
                             <td align="center"><?php echo $row['nilai']; ?></td>
                             <td align="center">
-                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_kehadiran_ubah.php?id_kehadiran=<?php echo $row['id_kehadiran'] ?>">
+                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_training_ubah.php?id_training=<?php echo $row['id_training'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-edit"></i>
                                 </span>
                               </a>
-                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_kehadiran_hapus.php?id_kehadiran=<?php echo $row['id_kehadiran'] ?>">
+                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_training_hapus.php?id_training=<?php echo $row['id_training'] ?>">
                                 <span class="icon">
                                   <i class="fas fa-trash"></i>
                                 </span>
@@ -422,7 +422,72 @@
                 </div>
               </div>
 
-              <!-- Removed Pendidikan Subcriteria Section -->
+              <div class="col-lg-6 col-xl-6">
+                <div class="card shadow mb-4">
+                  <div class="card-header">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="mt-2 font-weight-bold text-primary"> <b> <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 4";
+                                                                            $result = $konek->query($query);
+                                                                            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                                                              $meaning = $row["kriteria"];
+                                                                              echo $meaning;
+                                                                            } ?> </b></h5>
+                        <div class=" mt-2 col-lg-12 col-xl-12" style="text-align: right;">
+                          <a class="btn btn-primary shadow" href="data_kriteria_proyek_tambah.php">
+                            <span class="icon ">
+                              <i class="fas fa-plus mr-lg-2"></i>
+                            </span>Tambah</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <table border="border-left-info" class="table table-bordered table-striped table table-hover table-sm" width="100%" cellspacing="0">
+                      <thead align="center" class="thead-dark">
+                        <!-- <th>Nomor</th> -->
+                        <th> Nomor </th>
+                        <th> <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 4";
+                              $result = $konek->query($query);
+                              while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                $meaning = $row["kriteria"];
+                                echo $meaning;
+                              } ?></th>
+                        <th> Nilai </th>
+                        <th> Aksi </th>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $query = "SELECT * FROM kriteriajumlahproyek";
+                        $result = $konek->query($query);
+
+                        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                        ?>
+                          <tr>
+                            <td align="center"><?php echo $row['id_proyek']; ?></td>
+                            <td align="center"><?php echo $row['jumlah_proyek']; ?></td>
+                            <td align="center"><?php echo $row['nilai']; ?></td>
+                            <td align="center">
+                              <a class="btn btn-outline-primary border-0 btn-sm" href="data_kriteria_proyek_ubah.php?id_proyek=<?php echo $row['id_proyek'] ?>">
+                                <span class="icon">
+                                  <i class="fas fa-edit"></i>
+                                </span>
+                              </a>
+                              <a class="btn btn-outline-danger btn-sm border-0 btn-sm" href="data_kriteria_proyek_hapus.php?id_proyek=<?php echo $row['id_proyek'] ?>">
+                                <span class="icon">
+                                  <i class="fas fa-trash"></i>
+                                </span>
+                              </a>
+                            </td>
+                          </tr>
+                        <?php
+                        }
+                        ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
 
             </div>
           </div>

@@ -151,7 +151,7 @@ $row        = mysqli_fetch_array($query);
                   <div class="container">
                     <div class="col text-center mt-3 mb-3">
                       <input class="btn btn-primary" type="submit" name="simpan" value="Simpan">
-                      <a href="data_siswa.php">
+                      <a href="data_pegawai.php">
                         <button type="button" name="button" class="btn btn-danger">Batal</button>
                       </a>
 
@@ -210,10 +210,10 @@ if (isset($_POST['simpan'])) {
   $simpan = $konek->query($query);
   if ($simpan === true) {
     echo "<script>alert('Data Berhasil Di Ubah') </script>";
-    echo "<script>window.location.href = \"data_siswa.php\" </script>";
+    echo "<script>window.location.href = \"data_pegawai.php\" </script>";
   } else {
     echo "<script>alert('Data Gagal Di Ubah') </script>";
-    echo "<script>window.location.href = \"data_siswa.php\" </script>";
+    echo "<script>window.location.href = \"data_pegawai.php\" </script>";
   }
 }
 ?>
