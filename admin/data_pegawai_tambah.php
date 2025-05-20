@@ -149,7 +149,7 @@ if ($datkod) {
 
                   <div class="col text-center mt-3 mb-3">
                     <input class="btn btn-primary" type="submit" name="simpan" value="Simpan">
-                    <a href="data_siswa.php" class="btn btn-danger">Batal</a>
+                    <a href="data_pegawai.php" class="btn btn-danger">Batal</a>
                 </form>
               </div>
             </div>
@@ -199,17 +199,17 @@ if (isset($_POST['simpan'])) {
 
   if ($cek_siswa > 0) {
     echo "<script>alert('Data Sudah Ada!') </script>";
-    echo "<script>window.location.href = \"data_siswa_tambah.php\" </script>";
+    echo "<script>window.location.href = \"data_pegawai_tambah.php\" </script>";
   } else {
     $query  = "INSERT INTO data_siswa (id_siswa, namasiswa, penghasilan, jarak, tanggungan, ratanilai, pendidikan, nis, nama_ayah, nama_ibu, pekerjaan_ayah, pekerjaan_ibu, alamat, kehadiran) 
     VALUES ('$id_siswa', '$namasiswa','$penghasilan','$jarak','$tanggungan','$ratanilai', '$pendidikan', '$nis', '$nama_ayah', '$nama_ibu', '$pekerjaan_ayah', '$pekerjaan_ibu', '$alamat', '$kehadiran')";
     $tambah = $konek->query($query);
     if ($tambah == true) {
       echo "<script>alert('Data Berhasil Di Tambah') </script>";
-      echo "<script>window.location.href = \"data_siswa.php\" </script>";
+      echo "<script>window.location.href = \"data_pegawai.php\" </script>";
     } else {
       echo "<script>alert('Data Gagal Di Tambah') </script>";
-      echo "<script>window.location.href = \"data_siswa.php\" </script>";
+      echo "<script>window.location.href = \"data_pegawai.php\" </script>";
     }
   }
 }

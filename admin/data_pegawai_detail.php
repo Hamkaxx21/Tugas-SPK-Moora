@@ -31,9 +31,9 @@ $row     = mysqli_fetch_array($query);
                     <h5 class="mt-2 font-weight-bold text-primary"> <b> Detail Siswa </b></h5>
                   </div>
                   <div class="col-lg-6 col-xl-6" style="text-align: right;">
-                    <a class="btn btn-outline-dark font-weight-bold" href="data_siswa.php"><span class="icon "><i class="fas fa-arrow-left mr-lg-2"></i>Kembali</a>
+                    <a class="btn btn-outline-dark font-weight-bold" href="data_pegawai.php"><span class="icon "><i class="fas fa-arrow-left mr-lg-2"></i>Kembali</a>
                  
-                    <a class="btn btn-outline-primary font-weight-bold" href="data_siswa_ubah.php?id_siswa=<?php echo $row['id_siswa'] ?>"><span class="icon ">
+                    <a class="btn btn-outline-primary font-weight-bold" href="data_pegawai_ubah.php?id_siswa=<?php echo $row['id_siswa'] ?>"><span class="icon ">
                               <i class="fas fa-edit mr-lg-2"></i>
                             </span>Ubah Data Siswa</a>
 

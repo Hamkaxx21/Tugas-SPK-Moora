@@ -4,7 +4,7 @@
 
 
 <?php
-$sql     = "SELECT * FROM data_siswa";
+$sql     = "SELECT * FROM data_pegawai";
 $query   = mysqli_query($konek, $sql);
 $row     = mysqli_num_rows($query);
 ?>
@@ -35,7 +35,7 @@ $row     = mysqli_num_rows($query);
             <div class="col-lg-5">
                 <div class="py-5 px-4 masthead-cards">
                     <div class="d-flex">
-                        <a href="data_siswa.php" class="w-50 pr-3 pb-4" data-toggle="tooltip" title="Klik disini untuk melihat daftar siswa yang telah didaftarkan">
+                        <a href="data_pegawai.php" class="w-50 pr-3 pb-4" data-toggle="tooltip" title="Klik disini untuk melihat daftar siswa yang telah didaftarkan">
                             <div class="card border-0 border-bottom-red shadow-lg shadow-hover">
                                 <div class="card-body text-center">
                                     <div class="text-center">
@@ -113,7 +113,7 @@ $row     = mysqli_num_rows($query);
             <path class="c" d="M1963,327H-105V65A2647.49,2647.49,0,0,1,431,19c217.7,3.5,239.6,30.8,470,36,297.3,6.7,367.5-36.2,642-28a2511.41,2511.41,0,0,1,420,48"></path>
         </g>
         <g class="b">
-            <path class="d" d="M-127,404H1963V44c-140.1-28-343.3-46.7-566,22-75.5,23.3-118.5,45.9-162,64-48.6,20.2-404.7,128-784,0C355.2,97.7,341.6,78.3,235,50,86.6,10.6-41.8,6.9-127,10"></path>
+            <path class="d" d="M-127,404H1963V44c-140.1-28-343.3-46.7-566,22-75.5,23.3-118.5,45.9-162,64-48.6,20.2-404.7,128-784,0C355.2,97.7,341.6,78.3,235,50,86.6,10.6-41.8,6.9-127,10"></script>
         </g>
         <g class="b">
             <path class="d" d="M1979,462-155,446V106C251.8,20.2,576.6,15.9,805,30c167.4,10.3,322.3,32.9,680,56,207,13.4,378,20.3,494,24"></path>
@@ -133,7 +133,7 @@ $row     = mysqli_num_rows($query);
         <hr class="my-4">
         <p>Tekan ini untuk melihat daftar siswa</p>
         <p class="lead  font-weight-normal">
-          <a class="btn btn-light btn-lg shadow text-primary text-dark font-weight-normal mr-lg-3" href="data_siswa.php" role="button">
+          <a class="btn btn-light btn-lg shadow text-primary text-dark font-weight-normal mr-lg-3" href="data_pegawai.php" role="button">
             <i class="fas fa-fw fa fa-table mr-3"></i>Data Siswa</a>
           <a class="btn btn-light btn-lg shadow text-primary text-dark font-weight-normal" href="chart.php" role="button">
             <i class="fas fa-fw fa-chart-bar mr-3"></i>Monitoring Siswa</a>

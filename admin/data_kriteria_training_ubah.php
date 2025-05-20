@@ -1,8 +1,8 @@
 <?php include_once 'atribut/head.php'; ?>
 
 <?php
-$id_pen = $_GET['id_pendidikan'];
-$sql    = "SELECT * FROM kriteriapendidikan WHERE id_pendidikan = '$id_pen'";
+$id_training = $_GET['id_training'];
+$sql    = "SELECT * FROM kriteriajamtraining WHERE id_training = '$id_training'";
 $query  = mysqli_query($konek, $sql);
 $row    = mysqli_fetch_array($query);
 ?>
@@ -26,27 +26,27 @@ $row    = mysqli_fetch_array($query);
         <div class="col-xl-12  col-lg-8">
           <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary"> <b> Ubah Data Kriteria Pendidikan Terakhir Orang Tua </b></h5>
+              <h5 class="m-0 font-weight-bold text-primary"> <b> Ubah Data Kriteria Jam Training </b></h5>
             </div>
             <div class="card-body">
               <form class="form" method="post">
                 <div class="form-group">
                   <label class="control-label col-md-12 col-sm-12 col-xs-12">Nomor</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="id_pendidikan" value="<?php echo $row['id_pendidikan']; ?>"
+                    <input class="form-control" type="text" name="id_training" value="<?php echo $row['id_training']; ?>"
                       readonly="readonly">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Pendidikan Terakhir Orang Tua</label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Jam Training </label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="pendidikan" required value="<?php echo $row['pendidikan']; ?>">
+                    <input class="form-control" type="text" name="jam_training" value="<?php echo $row['jam_training']; ?>">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-md-12 col-sm-12 col-xs-12">Nilai</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="number" name="nilai" required value="<?php echo $row['nilai']; ?>">
+                    <input class="form-control" type="number" name="nilai" value="<?php echo $row['nilai']; ?>">
                   </div>
                 </div>
                 <!-- Button -->
@@ -77,11 +77,11 @@ $row    = mysqli_fetch_array($query);
 <?php
 
 if (isset($_POST['simpan'])) {
-  $id_pendidikan     = $_POST ['id_pendidikan'];
-  $pendidikan      = $_POST ['pendidikan'];
+  $id_training     = $_POST ['id_training'];
+  $jam_training      = $_POST ['jam_training'];
   $nilai      = $_POST ['nilai'];
 
-  $query = "UPDATE kriteriapendidikan SET pendidikan = '$pendidikan', nilai = '$nilai' WHERE id_pendidikan = '$id_pendidikan'";
+  $query = "UPDATE kriteriajamtraining SET jam_training = '$jam_training', nilai = '$nilai' WHERE id_training = '$id_training'";
   $simpan = mysqli_query($konek, $query);
   if ($simpan === true) {
     echo "<script>alert('Kriteria Berhasil Di Ubah') </script>";

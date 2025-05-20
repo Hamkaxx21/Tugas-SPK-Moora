@@ -1,12 +1,11 @@
 <?php include_once 'atribut/head.php'; ?>
 
 <?php
-$sql    = "SELECT id_penghasilan FROM kriteriapenghasilanortu";
+$sql    = "SELECT id_sakit FROM kriteriaharisakit";
 $carkod = mysqli_query($konek, $sql);
 $datkod = mysqli_fetch_array($carkod, MYSQLI_ASSOC);
 $jumdat = mysqli_num_rows($carkod);
 if ($datkod) {
-
   $kode    = $jumdat + 1;
   $kodeoto = $kode;
 } else {
@@ -18,7 +17,7 @@ if ($datkod) {
 <div id="wrapper">
   <!-- begin:: siderbar -->
   <?php include_once 'atribut/sidebar.php'; ?>
-  <!-- end:: siderbar -->  
+  <!-- end:: siderbar -->
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -33,27 +32,27 @@ if ($datkod) {
         <div class="col-xl-12  col-lg-8">
           <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary"> <b> Tambah Kriteria Penghasilan Orang Tua </b></h5>
+              <h5 class="m-0 font-weight-bold text-primary"> <b> Tambah Kriteria Hari Sakit </b></h5>
             </div>
             <div class="card-body">
               <form class="form" method="post">
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12">No</label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12">Nomor</label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="id_penghasilan" value="<?= $kodeoto ?>" readonly="readonly">
+                    <input class="form-control" type="text" name="id_sakit" value="<?= $kodeoto ?>"
+                      readonly="readonly">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Penghasilan Orang Tua </label>
+                  <label class="control-label col-md-12 col-sm-12 col-xs-12"> Hari Sakit </label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="text" name="penghasilan" required>
+                    <input class="form-control" type="text" name="hari_sakit" required>
                   </div>
                 </div>
-
                 <div class="form-group">
                   <label class="control-label col-md-12 col-sm-12 col-xs-12"> Nilai </label>
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="form-control" type="number" name="nilai" required>
+                    <input class="form-control" type="text" name="nilai" required>
                   </div>
                 </div>
                 <!-- Button -->
@@ -80,11 +79,11 @@ if ($datkod) {
 
 <?php
 if (isset($_POST['simpan'])) {
-  $id_penghasilan   = $_POST ['id_penghasilan'];
-  $penghasilan      = $_POST ['penghasilan'];
-  $nilai      = $_POST ['nilai'];
+  $id_sakit   = $_POST ['id_sakit'];
+  $hari_sakit           = $_POST ['hari_sakit'];
+  $nilai          = $_POST ['nilai'];
 
-  $query = "INSERT INTO kriteriapenghasilanortu (id_penghasilan, penghasilan, nilai) VALUES ('$id_penghasilan','$penghasilan','$nilai')";
+  $query = "INSERT INTO kriteriaharisakit (id_sakit, hari_sakit, nilai) VALUES ('$id_sakit','$hari_sakit','$nilai')";
   $tambah = mysqli_query($konek, $query);
   if ($tambah === true) {
     echo "<script>alert('Kriteria Berhasil Di Tambah') </script>";
