@@ -12,7 +12,7 @@
 
     <center>
 
-        <h2>DATA Ranking Kenaikan Jabatan Karyawan</h2>
+        <h2>Data Ranking Kenaikan Jabatan Karyawan</h2>
         <h4>PT Surya Tech</h4>
 
     </center>

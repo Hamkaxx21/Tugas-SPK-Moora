@@ -35,31 +35,28 @@
                   <thead align="center" class="thead-light">
                     <th style="width: 3.66%">No</th>
                     <th>Nama Karyawan</th>
-                    <?php
-                    $sqlNamakriteria = "SELECT * FROM moo_kriteria ORDER BY id_kriteria ASC";
-                    $resultNamaKriteria = mysqli_query($konek, $sqlNamakriteria);
-                    while ($hasilNamaKriteria = mysqli_fetch_assoc($resultNamaKriteria)) {
-                    ?>
-                      <th><?= $hasilNamaKriteria['kriteria'] ?></th>
-                    <?php
-                    }
-                    ?>
-                    <th style="width: 15.66%">Aksi</th>
+                    <th>Jam Kerja</th>
+                    <th>Jumlah Proyek</th>
+                    <th>Jam Lembur</th>
+                    <th>Hari Sakit</th>
+                    <th>Gaji Bulanan</th>
+                    <th>Jam Training</th>
+                    <th>Aksi</th>
                   </thead>
                   <tbody>
                     <?php
-                      $query  = "SELECT * FROM data_pegawai";
+                      $query  = "SELECT * FROM data_siswa";
                       $result = $konek->query($query);
                       while ($row=$result->fetch_array(MYSQLI_ASSOC)) { ?>
                       <tr>
                       <td align="center" style="width: 1.66%"><?php echo $row['id_pegawai']; ?></td>
-                      <td align="center" style="width: 55.66%"><?php echo $row['namapegawai']; ?></td>
-                      <td align="center" style="width: 25.66%"><?php echo ($row['gaji_bulanan']);?></td>
+                      <td align="center" style="width: 10.66%"><?php echo $row['namapegawai']; ?></td>
+                      <td align="center" style="width: 5.66%"><?php echo ($row['jam_kerja']);?></td>
                       <td align="center" style="width: 5.66%"><?php echo $row['jumlah_proyek']; ?></td>
-                      <td align="center"><?php echo $row['hari_sakit']; ?></td>
-                      <td align="center" style="width: 5.66%"><?php echo $row['jam_kerja']; ?></td>
-                      <td align="center" style="width: 3.66%"><?php echo $row['jam_lembur']; ?></td>
-                      <td align="center" style="width: 3.66%"><?php echo $row['jam_training']; ?></td>
+                      <td align="center" style="width: 5.66%"><?php echo $row['jam_lembur']; ?></td>
+                      <td align="center" style="width: 5.66%"><?php echo $row['hari_sakit']; ?></td>
+                      <td align="center" style="width: 10.66%"><?php echo $row['gaji_bulanan']; ?></td>
+                      <td align="center" style="width: 5.66%"><?php echo $row['jam_training']; ?></td>
                         <td align="center" style="width: 1.66%">
                           <a class="btn btn-outline-info btn-sm  border-0"
                             href="data_pegawai_detail.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
