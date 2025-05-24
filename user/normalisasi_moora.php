@@ -42,10 +42,15 @@
                                     <?php
                                     foreach ($normal as $key => $value) {
                                         echo "<tr>";
-                                        echo "<td>" . $alternatif[$key][1] . "</td>";
-                                        echo "<td>A" . $alternatif[$key][0] . "</td>";
-                                        for ($i = 1; $i <= count($value); $i++) {
-                                            echo "<td>" . $value[$i] . "</td>";
+                                        if (isset($alternatif[$key])) {
+                                            echo "<td>" . $alternatif[$key][1] . "</td>";
+                                            echo "<td>A" . $alternatif[$key][0] . "</td>";
+                                        } else {
+                                            echo "<td>Unknown</td>";
+                                            echo "<td>Unknown</td>";
+                                        }
+                                        foreach ($value as $nilai) {
+                                            echo "<td>" . $nilai . "</td>";
                                         }
                                         echo "</tr>";
                                     }

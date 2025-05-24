@@ -80,11 +80,11 @@ if ($datkod) {
 
 <?php
 if (isset($_POST['simpan'])) {
-  $id_penghasilan   = $_POST ['id_penghasilan'];
-  $penghasilan      = $_POST ['penghasilan'];
+  $id_penghasilan   = $_POST ['id_gaji'];
+  $penghasilan      = $_POST ['gaji_bulanan'];
   $nilai      = $_POST ['nilai'];
 
-  $query = "INSERT INTO kriteriagajibulanan (id_gaji, gaji_bulanan, nilai) VALUES ('$id_gaji','$gaji_bulanan','$nilai')";
+  $query = "INSERT INTO kriteriagajibulanan (id_gaji, gaji_bulanan, nilai) VALUES ('$id_penghasilan','$penghasilan','$nilai')";
   $tambah = mysqli_query($konek, $query);
   if ($tambah === true) {
     echo "<script>alert('Kriteria Berhasil Di Tambah') </script>";

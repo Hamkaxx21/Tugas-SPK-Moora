@@ -2,8 +2,8 @@
 <?php
 
 
-$id_siswa = $_GET['id_siswa'];
-$sql     = "SELECT * FROM data_siswa WHERE id_siswa= '$id_siswa'";
+$id_siswa = $_GET['id_pegawai'];
+$sql     = "SELECT * FROM data_siswa WHERE id_pegawai= '$id_siswa'";
 $query   = mysqli_query($konek, $sql);
 $row     = mysqli_fetch_array($query);
 ?>
@@ -28,14 +28,14 @@ $row     = mysqli_fetch_array($query);
               <div class="card-header">
                 <div class="row">
                   <div class="col">
-                    <h5 class="mt-2 font-weight-bold text-primary"> <b> Detail Siswa </b></h5>
+                    <h5 class="mt-2 font-weight-bold text-primary"> <b> Detail Pegawai </b></h5>
                   </div>
                   <div class="col-lg-6 col-xl-6" style="text-align: right;">
                     <a class="btn btn-outline-dark font-weight-bold" href="data_pegawai.php"><span class="icon "><i class="fas fa-arrow-left mr-lg-2"></i>Kembali</a>
                  
-                    <a class="btn btn-outline-primary font-weight-bold" href="data_pegawai_ubah.php?id_siswa=<?php echo $row['id_siswa'] ?>"><span class="icon ">
+                    <a class="btn btn-outline-primary font-weight-bold" href="data_pegawai_ubah.php?id_pegawai=<?php echo $row['id_pegawai'] ?>"><span class="icon ">
                               <i class="fas fa-edit mr-lg-2"></i>
-                            </span>Ubah Data Siswa</a>
+                            </span>Ubah Data Pegawai</a>
 
                   </div>
 
@@ -45,58 +45,30 @@ $row     = mysqli_fetch_array($query);
                 <div class=" ml-4">
                   <div class="col  ">
                     <div class=" mt-md-4 mb-4">
-                      <h5>Nomor Urut</h5>
-                      <?= $row['id_siswa'] ?>
+                      <h5>Id Pegawai</h5>
+                      <?= $row['id_pegawai'] ?>
                       <div class=" mt-md-4 mb-4">
-                        <h5>Nomor Induk Siswa</h5>
-                        <?= $row['nis'] ?>
+                        <h5>Nama Pegawai</h5>
+                        <?= $row['namapegawai'] ?>
                       </div>
                       <div class=" mt-md-4 mb-4">
-                        <h5>Nama Lengkap Siswa</h5>
-                        <?= $row['namasiswa'] ?>
+                        <h5>Jam Kerja</h5>
+                        <?= $row['jam_kerja'] ?>
                       </div>
                       <div class=" mt-md-4 mb-4">
-                        <h5>Alamat Lengkap Siswa</h5>
-                        <?= ($row['alamat']) ?>
+                        <h5>Jumlah Proyek</h5>
+                        <?= ($row['jumlah_proyek']) ?>
                       </div>
                       <div class=" mt-md-4 mb-4">
-                        <h5>Penghasilan Orang Tua</h5>
-                        <?php echo ($row['penghasilan']) ?> / Bulan
+                        <h5>Hari Sakit</h5>
+                        <?php echo ($row['hari_sakit']) ?>
                       </div>
                       <div class=" mt-md-4 mb-4">
-                        <h5>Pekerjaan Ayah</h5>
-                        <?= ($row['pekerjaan_ayah']) ?>
+                        <h5>Gaji Bulanan</h5>
+                        <?= ($row['gaji_bulanan']) ?>
                         <div class=" mt-md-4 mb-4">
-                          <h5>Pekerjaan Ibu</h5>
-                          <?= ($row['pekerjaan_ibu']) ?>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Jarak yang ditempuh untuk kesekolah</h5>
-                            <?= $row['jarak'] ?> Kilometer
-                          </div>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Nama Ayah</h5>
-                            <?= $row['nama_ayah'] ?>
-                          </div>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Nama Ibu</h5>
-                            <?= $row['nama_ibu'] ?>
-                          </div>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Jumlah Tanggungan</h5>
-                            <?= $row['tanggungan'] ?> Tanggungan
-                          </div>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Pendidikan Terakhir Orang Tua</h5>
-                            <?= $row['pendidikan'] ?>
-                          </div>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Nilai Rata-Rata Rapot</h5>
-                            <?= $row['ratanilai'] ?>
-                          </div>
-                          <div class=" mt-md-4 mb-4">
-                            <h5>Persentase Kehadiran Siswa</h5>
-                            <?= $row['kehadiran'] ?>%
-                          </div>
+                          <h5>Jam Training</h5>
+                          <?= ($row['jam_training']) ?>
                           <!-- <h2>Pictures</h2> -->
 
 

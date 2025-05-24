@@ -93,7 +93,7 @@
                   <div class="card-header ">
                     <div class="row">
                       <div class="col-lg-6 col-xl-12">
-                        <h5 class="mt-2 font-weight-bold text-primary"> <b> 
+                        <h5 class="mt-2 font-weight-bold text-primary"> Gaji Bulanan <b> 
                             <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 1";
                             $result = $konek->query($query);
                             while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -162,7 +162,7 @@
                   <div class="card-header">
                     <div class="row">
                       <div class="col">
-                        <h5 class="mt-2 font-weight-bold text-primary"> <b> <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 2";
+                        <h5 class="mt-2 font-weight-bold text-primary"> Hari Sakit <b> <?php $query  = "SELECT * FROM moo_kriteria where id_kriteria = 2";
                                                                             $result = $konek->query($query);
                                                                             while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                                                               $meaning = $row["kriteria"];

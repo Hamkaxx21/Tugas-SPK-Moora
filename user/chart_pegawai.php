@@ -266,3 +266,56 @@
         }
     });
 </script>
+<script>
+    var ctx = document.getElementById("chart_lembur").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [">= 22 Jam", "15-21 Jam", "8-14 Jam", "0-7 Jam"],
+            datasets: [{
+                label: 'Karyawan',
+                data: [
+                    <?php
+                    $range1 = mysqli_query($konek, "SELECT * from data_siswa where jam_lembur between 22 and 30");
+                    echo mysqli_num_rows($range1);
+                    ?>,
+                    <?php
+                    $range2 = mysqli_query($konek, "SELECT * from data_siswa where jam_lembur between 15 and 21");
+                    echo mysqli_num_rows($range2);
+                    ?>,
+                    <?php
+                    $range3 = mysqli_query($konek, "SELECT * from data_siswa where jam_lembur between 8 and 14");
+                    echo mysqli_num_rows($range3);
+                    ?>,
+                    <?php
+                    $range4 = mysqli_query($konek, "SELECT * from data_siswa where jam_lembur between 0 and 7");
+                    echo mysqli_num_rows($range4);
+                    ?>
+
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

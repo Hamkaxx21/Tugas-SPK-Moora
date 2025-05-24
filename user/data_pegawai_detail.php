@@ -2,7 +2,7 @@
 <?php
 
 $id_pegawai = $_GET['id_pegawai'];
-$sql     = "SELECT * FROM data_pegawai WHERE id_pegawai= '$id_pegawai'";
+$sql     = "SELECT * FROM data_siswa WHERE id_pegawai= '$id_pegawai'";
 $query   = mysqli_query($konek, $sql);
 $row     = mysqli_fetch_array($query);
 ?>

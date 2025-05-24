@@ -4,7 +4,7 @@
 
 
 <?php
-$sql     = "SELECT * FROM data_pegawai";
+$sql     = "SELECT * FROM user_acc";
 $query   = mysqli_query($konek, $sql);
 $row     = mysqli_num_rows($query);
 ?>
