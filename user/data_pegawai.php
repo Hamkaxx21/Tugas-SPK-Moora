@@ -57,7 +57,7 @@
                         <td align="center" style="width: 5.66%"><?php echo $row['jam_lembur']; ?></td>
                         <td align="center" style="width: 3.66%"><?php echo $row['jam_training']; ?></td>
                         <td align="center">
-                          <a class="btn btn-info btn rounded-circle border-0 btn-outline-info" href="data_siswa_detail.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
+                          <a class="btn btn-info btn rounded-circle border-0 btn-outline-info" href="data_pegawai_detail.php?id_pegawai=<?php echo $row['id_pegawai'] ?>">
                             <span class="icon ">
                               <i class="fas fa-info-circle"></i>
                             </span>

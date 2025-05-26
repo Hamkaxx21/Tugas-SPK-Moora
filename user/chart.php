@@ -124,6 +124,22 @@ $row     = mysqli_num_rows($query);
 
                         </div>
                     </div>
+
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="card boxred mb-4">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <h5 class="mt-2 font-weight-bold text-primary center"> <b>Jam Lembur Karyawan</b></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width: 400px;margin: 20spx auto;" class="ml-lg-5 mb-lg-3 mt-lg-3">
+                                <canvas id="chart_lembur" width="50" height="30"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,7 +181,7 @@ $row     = mysqli_num_rows($query);
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.js" integrity="sha512-opXrgVcTHsEVdBUZqTPlW9S8+99hNbaHmXtAdXXc61OUU6gOII5ku/PzZFqexHXc3hnK8IrJKHo+T7O4GRIJcw==" crossorigin="anonymous"></script>
-<?php include_once 'chart_siswa.php' ?>
+<?php include_once 'chart_pegawai.php' ?>
 <?php include_once 'atribut/display.php'; ?>
 
 
