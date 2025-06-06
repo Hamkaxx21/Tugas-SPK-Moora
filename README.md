@@ -1,10 +1,5 @@
 # Sistem Pendukung Keputusan Pemilihan Kenaikan Jabatan Karyawan dengan Metode MOORA
-<p align="center">
-<img src="https://github.com/rasyidmisbahuddin/Sistem-Pendukung-Keputusan-MOORA/blob/main/screenshotspk.jpeg" alt="drawing" width="400"/>
-<img src="https://github.com/rasyidmisbahuddin/Sistem-Pendukung-Keputusan-MOORA/blob/main/screenshotspk2.jpeg" alt="drawing" width="400"/>
-<img src="https://github.com/rasyidmisbahuddin/Sistem-Pendukung-Keputusan-MOORA/blob/main/screenshotspk3.jpeg" alt="drawing" width="400"/>
-<img src="https://github.com/rasyidmisbahuddin/Sistem-Pendukung-Keputusan-MOORA/blob/main/screenshotspk4.jpeg" alt="drawing" width="400"/>
-</p>
+
 Sistem merupakan sistem berbasis web yang digunakan untuk menyeleksi siswa yang memerlukan bantuan berdasarkan perhitungan MOORA
 
 Berikut merupakan panduan installasi website Sistem Pendukung Keputusan Pemilihan Kenaikan Jabatan Karyawan Menggunakan Multi Objective Optimization Method On The Basic Of Ratio
